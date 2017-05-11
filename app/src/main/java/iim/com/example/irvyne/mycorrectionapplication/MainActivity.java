@@ -18,16 +18,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displayWebView(View view) {
+        Intent intent = new Intent(this, MainActivityWebView.class);
 
+        String url = "";
+
+        // Condition
+        switch (view.getId()) {
+            case R.id.buttonGoogle:
+                url = "https://google.com";
+                break;
+            case R.id.buttonAmazon:
+                url = "https://www.amazon.com";
+                break;
+            case R.id.buttonSendURL:
+                url = ((EditText) findViewById(R.id.editURL)).getText().toString();
+            default:
+                url = "https://404.com";
+        }
+
+        intent.putExtra(EXTRA_URL, url);
+
+        startActivity(intent);
     }
 
     public void sendMessage(View view) {
         Intent intent = new Intent(this, MainActivityDisplay.class);
 
         EditText editFirstName = (EditText) findViewById(R.id.editFirstName);
-        EditText editLastName = (EditText) findViewById(R.id.editLastName);
-
         String firstName = editFirstName.getText().toString();
+
+        EditText editLastName = (EditText) findViewById(R.id.editLastName);
         String lastName = editLastName.getText().toString();
 
         intent.putExtra(EXTRA_FIRST_NAME, firstName);
