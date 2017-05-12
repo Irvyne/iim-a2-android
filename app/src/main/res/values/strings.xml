@@ -9,4 +9,9 @@
     <string name="input_first_name">First Name</string>
     <string name="input_last_name">Last Name</string>
     <string name="input_url">URL (eg. https://google.com)</string>
+
+    <string-array name="spinner_protocol">
+        <item>http://</item>
+        <item>https://</item>
+    </string-array>
 </resources>
