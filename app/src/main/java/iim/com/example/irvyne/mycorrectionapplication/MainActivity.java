@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 url = "https://www.amazon.com";
                 break;
             case R.id.buttonSendURL:
-                url = ((EditText) findViewById(R.id.editURL)).getText().toString();
+                String protocol = ((Spinner) findViewById(R.id.spinnerProtocol)).getSelectedItem().toString();
+                url = protocol.concat(((EditText) findViewById(R.id.editURL)).getText().toString());
                 break;
             default:
                 url = "https://404.com";
